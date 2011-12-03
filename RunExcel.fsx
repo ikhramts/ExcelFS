@@ -11,7 +11,7 @@ open Microsoft.Office.Interop.Excel
 let excel = ApplicationClass(Visible = true)
 
 // Open a workbook.
-let workbookDir = @"C:\Iouri\ExcelFS\" // Update this as necessary.
+let workbookDir = "C:\Iouri\ExcelFS\\" // Update this as necessary.
 excel.Workbooks.Open(workbookDir + "Temperatures 2011.08.09.14.58.xls")
 
 // Get a reference to the workbook, the worksheets and some ranges.
