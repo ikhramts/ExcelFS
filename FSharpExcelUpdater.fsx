@@ -119,8 +119,8 @@ excel.Workbooks.Open(workbookFullName)
 // Get references to various useful objects in Excel.
 let workbookName = workbookFullName.Substring(workbookFullName.LastIndexOf('\\') + 1)
 let workbook = excel.Workbooks.Item(workbookName)
-let temperatureSheet = workbook.Sheets.["Temperatures"] :?> Worksheet
-let calculationsSheet = workbook.Sheets.["Calculations"] :?> Worksheet
+let temperatureSheet = workbook.Sheets.[ "Temperatures"] :?> Worksheet
+let calculationsSheet = workbook.Sheets.[ "Calculations"] :?> Worksheet
 let datetimeColumn = temperatureSheet.Range("Temperatures_DateTime")
 let temperatureColumns = temperatureSheet.Range("Temperatures_Data")
 
