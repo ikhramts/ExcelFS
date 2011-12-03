@@ -24,18 +24,18 @@ let worksheetDateTimePattern = @"\d\d\d\d.\d\d.\d\d.\d\d.\d\d"
 // Email Settings.
 // Change "useEmail" below to 'true' and update the email settings to send emails.
 let useEmail = false
-let fromAddress = new MailAddress("ioukhr@gmail.com", "Iouri Khramtsov")
+let fromAddress = new MailAddress("you@gmail.com", "Your Name")
 let password = "xxxxxxx"
 
 let onSuccessEmailTo = new MailAddressCollection()
-onSuccessEmailTo.Add(new MailAddress("ioukhr@gmail.com", "Iouri Khramtsov"))
-onSuccessEmailTo.Add(new MailAddress("iouri.khramtsov@chapelgate.ca", "Iouri Khramtsov"))
+onSuccessEmailTo.Add(new MailAddress("you@gmail.com", "Your Name"))
+onSuccessEmailTo.Add(new MailAddress("someone.elses@email.com", "Someone's Name"))
 
 let onFailEmailTo  = new MailAddressCollection()
-onFailEmailTo.Add(new MailAddress("ioukhr@gmail.com", "Iouri Khramtsov"))
+onFailEmailTo.Add(new MailAddress("your@email.com", "Your Name"))
 
 let smtp = new SmtpClient("smtp.gmail.com", 587)
-smtp.Credentials <- new System.Net.NetworkCredential("ioukhr@gmail.com", password)
+smtp.Credentials <- new System.Net.NetworkCredential("you@gmail.com", password)
 smtp.EnableSsl <- true
 
 let mutable excel:ApplicationClass = null 
