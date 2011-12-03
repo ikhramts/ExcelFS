@@ -1,4 +1,3 @@
-//#r "stdole.dll"
 #r "office.dll"
 #r "Microsoft.Office.Interop.Excel"
 #r "System.Xml.Linq"
