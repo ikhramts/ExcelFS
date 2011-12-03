@@ -16,8 +16,8 @@ open Microsoft.Office.Interop.Excel
 //------------------------------------------------------------------------------------------
 //                          Settings
 // Worksheet settings.
-let worksheetDir = @"C:\Iouri\ExcelFS\"
-let worksheetBaseName = @"Temperatures "
+let worksheetDir = "C:\Iouri\ExcelFS\\"
+let worksheetBaseName = "Temperatures "
 let worksheetDateTimePattern = @"\d\d\d\d.\d\d.\d\d.\d\d.\d\d"
 //                                  year  month date  hr  min
 
