@@ -14,7 +14,9 @@ let excel = ApplicationClass(Visible = true)
 let workbookDir = "C:\\Iouri\\ExcelFS\\" // Update this as necessary.
 excel.Workbooks.Open(workbookDir + "Temperatures 2011.08.09.14.58.xls")
 
-// Get a reference to the workbook, the worksheets and some ranges.
+// Get a reference to the workbook, then get a reference to a
+// work sheet in that workbook as well as some named ranges in the
+// worksheet.
 let workbook = excel.Workbooks.Item("Temperatures 2011.08.09.14.58.xls")
 let temperatureSheet = workbook.Sheets.["Temperatures"] :?> Worksheet
 let calculationsSheet = workbook.Sheets.["Calculations"] :?> Worksheet
@@ -26,12 +28,15 @@ calculationsSheet.Activate()
 calculationsSheet.Calculate()
 temperatureSheet.Activate()
 
-// Run a macro.  Can add a comma after the macro name, and throw
-// in a few arguments.
+// Run a macro.  The Run() function can accept multiple arguments.  The
+// first argument is the name of the macro to run, any additional
+// arguments become parameters passed to that macro.  In this case
+// the macro has no additional parameters.
 excel.Run("UpdateLastRunDate")
 
 // Read some cell values, specifically the Yahoo! Weather location codes.
-// Value2 is an Object that needs to be typecast into a specific type.
+// The cell values are extracted from each Range object using Value2 property,
+// and will need to be typecast into specific types.
 // For a multi-cell range, Value2 contains a 2-d array of Objects.
 // Note that we are assuming that some cells may be empty.  For empty
 // cells, Value2 property will be null.
@@ -62,6 +67,6 @@ let savedFileName = workbookDir + "Temperatures " + textDate + ".xls"
 workbook.SaveAs(savedFileName)
 
 // Exit Excel.  Need to take extra cleanup step to release the COM object,
-// or else Excel may stick around.
+// associated with the Excel process, or else Excel may quietly stick around.
 excel.Quit()
 System.Runtime.InteropServices.Marshal.ReleaseComObject excel
